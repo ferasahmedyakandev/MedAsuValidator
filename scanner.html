@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MedAsu Orientation Scanner</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="text-align:center">
+  <nav>
+    <a href="scanner.html">Scanner</a>
+    <a href="log.html">Log</a>
+  </nav>
+  <h1>MedAsu Orientation Scanner</h1>
+
+  <div class="warn" id="configWarning" style="display:none">
+    Set <code>WEBAPP_URL</code> in <code>js/config.js</code> to your Apps Script web app's
+    <code>/exec</code> URL before using this page.
+  </div>
+
+  <div class="card">
+    <h2>Your valid scans today</h2>
+    <div id="stationStats" class="hint">Select a station to see your count.</div>
+  </div>
+
+  <div class="card">
+    <label for="scannerSelect">Station: </label>
+    <select id="scannerSelect">
+      <option value="">-- Select --</option>
+      <option value="Youhana">youhana</option>
+      <option value="Reem">reem</option>
+      <option value="Ahmed">ahmed</option>
+      <option value="Tasneem">tasneem</option>
+      <option value="Judi">judi</option>
+      <option value="Radwa">radwa</option>
+    </select>
+    <div class="hint" id="activeStationLabel">No station unlocked yet.</div>
+  </div>
+
+  <div class="card">
+    <h2>Camera</h2>
+    <button id="startBtn" disabled>Start Camera</button>
+    <div id="reader" style="margin-top:12px"></div>
+    <div class="hint" id="cameraHint">If nothing happens, use the box below instead.</div>
+  </div>
+
+  <div class="card">
+    <h2>Manual entry</h2>
+    <p class="hint">Type the 6-digit ID directly, or paste the full QR text.</p>
+    <input type="text" id="manualInput" placeholder="123456" autofocus disabled>
+    <button id="validateBtn" disabled>Validate</button>
+  </div>
+
+  <div id="resultBox" class="result" style="display:none"></div>
+  <div id="scannedText" class="hint"></div>
+
+  <div class="overlay" id="passwordOverlay">
+    <div class="modal">
+      <p id="passwordModalText"></p>
+      <input type="password" id="stationPasswordInput" placeholder="Password" style="width:180px">
+      <div class="hint err" id="passwordError"></div>
+      <div>
+        <button id="passwordSubmitBtn">Unlock</button>
+        <button id="passwordCancelBtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/html5-qrcode"></script>
+  <script src="js/config.js"></script>
+  <script src="js/scanner.js"></script>
+
+  <footer style="margin-top:40px;text-align:center;font-size:12px;color:#777">
+    <strong>&copy; Feras Ahmed Yakan. All rights reserved.</strong>
+  </footer>
+</body>
+</html>

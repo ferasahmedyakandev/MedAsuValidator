@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MedAsu Orientation — Log</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <a href="scanner.html">Scanner</a>
+    <a href="log.html">Log</a>
+  </nav>
+  <h1>MedAsu Orientation - Log</h1>
+
+  <div class="warn" id="configWarning" style="display:none">
+    Set <code>WEBAPP_URL</code> in <code>js/config.js</code> to your Apps Script web app's
+    <code>/exec</code> URL before using this page.
+  </div>
+
+  <p class="hint">Click a row to delete that log entry (this only removes the log record — it does not undo a valid scan's timestamp in the data sheet).</p>
+  <div id="logContainer">Loading...</div>
+
+  <div class="overlay" id="overlay">
+    <div class="modal">
+      <p id="modalText"></p>
+      <button class="btn-danger" id="deleteConfirmBtn">Delete</button>
+      <button id="cancelBtn">Cancel</button>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/log.js"></script>
+
+  <footer style="margin-top:40px;text-align:center;font-size:12px;color:#777">
+    <strong>&copy; Feras Ahmed Yakan. All rights reserved.</strong>
+  </footer>
+</body>
+</html>
